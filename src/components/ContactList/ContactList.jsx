@@ -1,16 +1,12 @@
 import { useSelector } from 'react-redux';
-import { selectContacts, selectNameFilter } from '../../redux/selectors';
+import { selectVisibleCard } from '../../redux/selectors';
 import Contact from '../Contact/Contact';
 import css from './ContactList.module.css';
 
 
 
 export default function ContactList({onDelete}) {
-    const contacts = useSelector(selectContacts);
-    const filters = useSelector(selectNameFilter);
-
-    const visibleCard = contacts.filter(({name}) => 
-        name.toLowerCase().includes(filters.toLowerCase()));
+    const visibleCard = useSelector(selectVisibleCard);
     
     return(
         <ul className={css.list}>
