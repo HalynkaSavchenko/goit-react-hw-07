@@ -5,14 +5,14 @@ import css from './ContactList.module.css';
 
 
 
-export default function ContactList({onDelete}) {
+export default function ContactList() {
     const visibleCard = useSelector(selectVisibleCard);
     
     return(
         <ul className={css.list}>
             {visibleCard.map((card) => (
                 <li className={css.card} key={card.id}>
-                  <Contact data={card} onDelete={onDelete}/>
+                  <Contact data={card} />
                </li>
             ))}
         </ul>
